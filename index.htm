@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Multiple Selection Combobox</title>
+
+    <script   src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+    <!--<script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>--> 
+    <script   src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"   integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="   crossorigin="anonymous"></script>
+
+    <style>
+        div#multiSelectOptions label{ color: gray;} 
+        div#multiSelectOptions input{margin-right:5px;margin-left:5px;} 
+        div#multiSelectOptions {background-color:White; color: Black; max-width:310px; overflow: scroll;} .completeCheckbox {width: 500px;}
+    </style>
+
+</head>
+<body>
+
+    <h1> Multiple Selection Combobox </h1>
+
+    <form action="/Account/SignUp" method="post"    
+        <label for="HowDidYouHearAboutCC">How did you hear about College Coach?</label>
+        <br />
+        <select aria-required="true" data-val="true" data-val-number="The field HowDidYouHearAboutCC must be a number." id="HowDidYouHearAboutCC" name="HowDidYouHearAboutCC" style="height: 26px;"><option value=""></option>
+            <option value="881840000">Benefit Fair</option>
+            <option value="881840001">Colleague</option>
+            <option value="881840002">College Coach Advisor</option>
+            <option value="881840003">Company Intranet</option>
+            <option value="881840004">Email from College Coach</option>
+            <option value="881840012">Email from your Employer</option>
+            <option value="881840005">Flyer</option>
+            <option value="881840006">Monitor Ad</option>
+            <option value="881840007">Phone Call from College Coach</option>
+            <option value="881840008">Postcard</option>
+            <option value="881840009">Poster</option>
+            <option value="881840010">Other</option>
+        </select>
+
+        <br />
+        <br />
+
+        <label for="ChildrenGradeLevel">What level is your child in school?</label>                   
+        <br />
+        <label style="margin-top: 15px;">
+        <label for="childGradeLevelNote">* If you have multiple children, select all that apply.</label>
+        <br />
+       <select aria-required="true" data-val="true" data-val-number="The field ChildrenGradeLevel must be a number." id="ChildrenGradeLevel" name="ChildrenGradeLevel" style="height: 26px;"><option value=""></option>
+        <option value="1">Not Yet in School</option>
+        <option value="2">Preschool</option>
+        <option value="3">Elementary School</option>
+        <option value="4">Middle School</option>
+        <option value="5">High School</option>
+        <option value="6">College</option>
+        <option value="7">Recently Graduated College</option>
+        <option value="8">I am in school or a continuing education program.</option>
+        </select>                   
+        <div id="multiSelectOptions">
+            <input class="multipleSelectCheckbox" data-val="true" data-val-required="The ChildNotYetInSchool field is required." id="ChildNotYetInSchool" name="ChildNotYetInSchool" type="checkbox" value="true" /><input name="ChildNotYetInSchool" type="hidden" value="false" /> 
+            <label for="ChildNotYetInSchool">Not Yet in School</label>
+            <br />
+            <input class="multipleSelectCheckbox" data-val="true" data-val-required="The ChildInPreSchool field is required." id="ChildInPreSchool" name="ChildInPreSchool" type="checkbox" value="true" /><input name="ChildInPreSchool" type="hidden" value="false" /> 
+            <label for="ChildInPreSchool">Preschool</label>
+            <br />
+            <input class="multipleSelectCheckbox" data-val="true" data-val-required="The ChildInElementarySchool field is required." id="ChildInElementarySchool" name="ChildInElementarySchool" type="checkbox" value="true" /><input name="ChildInElementarySchool" type="hidden" value="false" /> 
+            <label for="ChildInElementarySchool">Elementary School</label>
+            <br />
+            <input class="multipleSelectCheckbox" data-val="true" data-val-required="The ChildInMiddleSchool field is required." id="ChildInMiddleSchool" name="ChildInMiddleSchool" type="checkbox" value="true" /><input name="ChildInMiddleSchool" type="hidden" value="false" />
+            <label for="ChildInMiddleSchool">Middle School</label>
+            <br />
+            <input class="multipleSelectCheckbox" data-val="true" data-val-required="The ChildInHighSchool field is required." id="ChildInHighSchool" name="ChildInHighSchool" type="checkbox" value="true" /><input name="ChildInHighSchool" type="hidden" value="false" />
+            <label for="ChildInHighSchool">High School</label>
+            <br />
+            <input class="multipleSelectCheckbox" data-val="true" data-val-required="The ChildInCollege field is required." id="ChildInCollege" name="ChildInCollege" type="checkbox" value="true" /><input name="ChildInCollege" type="hidden" value="false" />
+            <label for="ChildInCollege">College</label>
+            <br />
+            <input class="multipleSelectCheckbox" data-val="true" data-val-required="The ChildRecentlyGraduatedCollege field is required." id="ChildRecentlyGraduatedCollege" name="ChildRecentlyGraduatedCollege" type="checkbox" value="true" /><input name="ChildRecentlyGraduatedCollege" type="hidden" value="false" />
+            <label for="ChildRecentlyGraduatedCollege">Recently Graduated College</label>
+            <br />
+            <input class="multipleSelectCheckbox" data-val="true" data-val-required="The IAmInSchoolOrContinuingEducationProgram field is required." id="IAmInSchoolOrContinuingEducationProgram" name="IAmInSchoolOrContinuingEducationProgram" type="checkbox" value="true" /><input name="IAmInSchoolOrContinuingEducationProgram" type="hidden" value="false" />
+            <label for="IAmInSchoolOrContinuingEducationProgram">I am in school or a continuing education program.</label>
+        </div>
+
+        <br />
+        <br />
+
+        <label for="Username">Username:</label>
+        <br />
+        <input aria-required="true" id="Username" name="Username" type="text" value="" />
+
+        <br />
+        <br />
+
+        <input id="btnLogin" type="submit" value="Register" />
+    </form>
+
+    <script type="text/javascript">
+        $(function () {
+            // disable submit buttons after being clicked to avoid submitting multiple times
+            $("#btnLogin").click(function () {
+                $("#btnLogin").addClass("btnDisabled");
+                $("#btnLogin").attr("disabled", "disabled");
+                $(this).closest("form").submit();
+            });
+            $("#btnLogin").removeAttr("disabled");
+            $("#btnLogin").removeClass("btnDisabled");
+
+            //Multiple Select drop down box
+            $("#ChildrenGradeLevel").off("mouseenter");
+            $("#ChildrenGradeLevel").off("mousedown");
+            $("#ChildrenGradeLevel").unbind("mousedown");
+            $("#ChildrenGradeLevel").off("mouseup");
+            $("#ChildrenGradeLevel").off("click");
+            $("#ChildrenGradeLevel").on("mousedown", function (e) {
+                e.preventDefault();
+                if ($("#multiSelectOptions").attr("hidden") == "hidden") {
+                    $("#multiSelectOptions").removeAttr("hidden");
+                    $("#ChildNotYetInSchool").focus();
+                }
+                else {
+                    $("#multiSelectOptions").attr("hidden", "hidden");
+                    $("#Username").focus();
+                }
+            });
+            //            $("#ChildrenGradeLevel").on("click", function () {
+            //                if ($("#multiSelectOptions").attr("hidden") == "hidden") {
+            //                    $("#multiSelectOptions").removeAttr("hidden");
+            //                    $("#ChildNotYetInSchool").focus();
+            //                }
+            //                else {
+            //                    $("#ChildrenGradeLevel").prev().focus();
+            //                }
+            //            });
+            $("#ChildrenGradeLevel").data("lastFocus", "");
+            $("#multiSelectOptions").attr("hidden", "hidden");
+            $("#multiSelectOptions").data('hover', 0);
+
+            $("#ChildrenGradeLevel").keydown(function (event) {
+                event.preventDefault();
+                if ((event.which == 40 && event.altKey == true) || event.which == 32) {
+
+                    if ($("#multiSelectOptions").attr("hidden") != undefined) {
+
+                        if ($("#multiSelectOptions").attr("hidden") && $("#ChildrenGradeLevel").data("lastFocus") == "") {
+                            $("#multiSelectOptions").removeAttr("hidden");
+                            $("#ChildNotYetInSchool").focus();
+                        } else {
+                            $("#ChildrenGradeLevel").data("lastFocus", "");
+                            $("#HowDidYouHearAboutCC").focus();
+                        }
+                    } else {
+                        $("#ChildNotYetInSchool").focus();
+                    }
+                }
+                if (event.which == 9) {
+                    if (event.shiftKey == true) {
+                        $("#HowDidYouHearAboutCC").focus();
+                    } else {
+                        $("#Username").focus();
+                    }
+                }
+            });
+
+            //            $("body").click(function (event) {
+            //                if ($("#multiSelectOptions").data('hover') == 0 && $(event.target).is("#ChildrenGradeLevel") == false) {
+            //                    if ($("#multiSelectOptions").attr("hidden") === undefined) {
+            //                        $("#multiSelectOptions").attr("hidden", "hidden");
+            //                    }
+            //                }
+            //            });
+
+            $("input").focus(function () {
+                if ($(this).attr("class") == "multipleSelectCheckbox") {
+                    if ($("#multiSelectOptions").attr("hidden") == "hidden") {
+                        $("#multiSelectOptions").removeAttr("hidden");
+                    }
+                }
+                else {
+                    $("#ChildrenGradeLevel").data("lastFocus", "");
+                    if ($("#multiSelectOptions").attr("hidden") === undefined) {
+                        $("#multiSelectOptions").attr("hidden", "hidden");
+                    }
+                }
+            });
+
+            $("#HowDidYouHearAboutCC").focus(function () {
+                $("#ChildrenGradeLevel").data("lastFocus", "");
+                if ($("#multiSelectOptions").attr("hidden") === undefined) {
+                    $("#multiSelectOptions").attr("hidden", "hidden");
+                }
+            });
+
+            $("input").blur(function () {
+                if ($(this).attr("class") == "multipleSelectCheckbox") {
+                    if ($("#ChildrenGradeLevel").data("lastFocus") != $(this).attr("id")) {
+                        $("#ChildrenGradeLevel").data("lastFocus", $(this).attr("id"));
+                    }
+                }
+                else {
+                    $("#ChildrenGradeLevel").data("lastFocus", "");
+                }
+            });
+
+            $("#multiSelectOptions input[type=checkbox]").on("keydown", function (event) {
+                event.preventDefault();
+                if (event.which == 40) {
+                    var nextSibling = $(this).nextAll(".multipleSelectCheckbox");
+                    if (nextSibling != null && nextSibling != undefined && nextSibling.length > 0) {
+                        nextSibling[0].focus();
+                    }
+                }
+                if (event.which == 38) {
+                    var prevSibling = $(this).prevAll(".multipleSelectCheckbox");
+                    if (prevSibling != null && prevSibling != undefined && prevSibling.length > 0) {
+                        prevSibling[0].focus();
+                    }
+                }
+                if (event.which == 32) {
+                    if (this.checked != null & this.checked == true) {
+                        $("#ChildrenGradeLevel").val(0);
+                        var index = 1;
+                        $(".multipleSelectCheckbox").each(function () {
+                            if (this.checked == true) {
+                                $("#ChildrenGradeLevel").val(index);
+                            }
+                            index = index + 1;
+                        });
+                        $(this).removeAttr('checked');
+                        $(this).focus();
+                    } else {
+                        SetChildrenGradeLevel($(this));
+                        $(this).prop('checked', 'checked');
+                        $(this).focus();
+                    }
+                }
+                if (event.which == 13) {
+                    if ($("#multiSelectOptions").attr("hidden") == undefined) {
+                        $("#multiSelectOptions").attr("hidden", "hidden");
+                    }
+                    $("#ChildrenGradeLevel").focus();
+                }
+                if (event.which == 9) {
+                    if ($("#multiSelectOptions").attr("hidden") === undefined) {
+                        $("#multiSelectOptions").attr("hidden", "hidden");
+                    }
+                    if (event.shiftKey == true) {
+                        $("#HowDidYouHearAboutCC").focus();
+                    } else {
+                        $("#Username").focus();
+                    }
+                }
+            });
+
+            $(".multipleSelectCheckbox").click(function () {
+                if (this.checked != null & this.checked == true) {
+                    SetChildrenGradeLevel($(this));
+                } else {
+                    $("#ChildrenGradeLevel").val(0);
+                    var index = 1;
+                    $(".multipleSelectCheckbox").each(function () {
+                        if (this.checked == true) {
+                            $("#ChildrenGradeLevel").val(index);
+                        }
+                        index = index + 1;
+                    });
+                }
+            });
+            $("#multiSelectOptions label").click(function (event) {
+                if ($(event.target).is("label")) {
+                    if ($("#" + $(this).attr("for")).checked == true) {
+                        $("#" + $(this).attr("for")).checked = false;
+                    } else {
+                        $("#" + $(this).attr("for")).checked = true;
+                    }
+                    $("#" + $(this).attr("for")).focus();
+                }
+            });
+
+            function SetChildrenGradeLevel(element) {
+                if (element.attr("id") == "ChildNotYetInSchool") {
+                    $("#ChildrenGradeLevel").val(1);
+                } else if (element.attr("id") == "ChildInPreSchool") {
+                    $("#ChildrenGradeLevel").val(2);
+                } else if (element.attr("id") == "ChildInElementarySchool") {
+                    $("#ChildrenGradeLevel").val(3);
+                } else if (element.attr("id") == "ChildInMiddleSchool") {
+                    $("#ChildrenGradeLevel").val(4);
+                } else if (element.attr("id") == "ChildInHighSchool") {
+                    $("#ChildrenGradeLevel").val(5);
+                } else if (element.attr("id") == "ChildInCollege") {
+                    $("#ChildrenGradeLevel").val(6);
+                } else if (element.attr("id") == "ChildRecentlyGraduatedCollege") {
+                    $("#ChildrenGradeLevel").val(7);
+                } else if (element.attr("id") == "IAmInSchoolOrContinuingEducationProgram") {
+                    $("#ChildrenGradeLevel").val(8);
+                }
+            }
+
+            $("#multiSelectOptions").hover(function () {
+                $(this).data("hover", 1);
+            },
+            function () {
+                $(this).data("hover", 0);
+            });
+
+            $("#HowDidYouHearAboutCC").focus();
+        });
+
+
+
+    </script>
+
+</body>
+</html>
