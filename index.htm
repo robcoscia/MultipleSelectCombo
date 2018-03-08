@@ -194,6 +194,7 @@
                 console.info("#HowDidYouHearAboutCC blur");
             });
 
+            $("#multiSelectOptions input[type=checkbox]").off("keydown");
             $("#multiSelectOptions input[type=checkbox]").on("keydown", function (event) {
                 event.preventDefault();
                 if (event.which == 40) {
