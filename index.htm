@@ -94,12 +94,12 @@
     </form>
 
     <script type="text/javascript">
-         $(function () {
-             $("#ChildrenGradeLevel").data("lastFocus", "");
-             $("#multiSelectOptions").attr("hidden", "hidden");
-             $("#multiSelectOptions").data('hover', 0);
+        $(function () {
+            $("#ChildrenGradeLevel").data("lastFocus", "");
+            $("#multiSelectOptions").attr("hidden", "hidden");
+            $("#multiSelectOptions").data('hover', 0);
 
-             // disable submit buttons after being clicked to avoid submitting multiple times
+            // disable submit buttons after being clicked to avoid submitting multiple times
             $("#btnLogin").click(function () {
                 $("#btnLogin").addClass("btnDisabled");
                 $("#btnLogin").attr("disabled", "disabled");
@@ -164,7 +164,7 @@
                     $("#multiSelectOptions").attr("hidden", "hidden");
                 }
             });
-           $("#HowDidYouHearAboutCC").focus(function () {
+            $("#HowDidYouHearAboutCC").focus(function () {
                 $("#ChildrenGradeLevel").data("lastFocus", "");
                 if ($("#multiSelectOptions").attr("hidden") === undefined) {
                     $("#multiSelectOptions").attr("hidden", "hidden");
@@ -233,18 +233,68 @@
                 }
             });
 
-            $(".multipleSelectCheckbox").click(function () {
-                if (this.checked != null & this.checked == true) {
-                    SetChildrenGradeLevel($(this));
-                } else {
-                    $("#ChildrenGradeLevel").val(0);
-                    var index = 1;
-                    $(".multipleSelectCheckbox").each(function () {
-                        if (this.checked == true) {
-                            $("#ChildrenGradeLevel").val(index);
+            $(".multipleSelectCheckbox").click(function (event) {
+                if (event.which < 4) {
+                    if (this.checked != null & this.checked == true) {
+                        SetChildrenGradeLevel($(this));
+                    } else {
+                        $("#ChildrenGradeLevel").val(0);
+                        var index = 1;
+                        $(".multipleSelectCheckbox").each(function () {
+                            if (this.checked == true) {
+                                $("#ChildrenGradeLevel").val(index);
+                            }
+                            index = index + 1;
+                        });
+                    }
+                }
+                else {
+                    if (event.which == 40) {
+                        var nextSibling = $(this).nextAll(".multipleSelectCheckbox");
+                        if (nextSibling != null && nextSibling != undefined && nextSibling.length > 0) {
+                            nextSibling[0].focus();
                         }
-                        index = index + 1;
-                    });
+                    }
+                    if (event.which == 38) {
+                        var prevSibling = $(this).prevAll(".multipleSelectCheckbox");
+                        if (prevSibling != null && prevSibling != undefined && prevSibling.length > 0) {
+                            prevSibling[0].focus();
+                        }
+                    }
+                    if (event.which == 32) {
+                        if (this.checked != null & this.checked == true) {
+                            $("#ChildrenGradeLevel").val(0);
+                            var index = 1;
+                            $(".multipleSelectCheckbox").each(function () {
+                                if (this.checked == true) {
+                                    $("#ChildrenGradeLevel").val(index);
+                                }
+                                index = index + 1;
+                            });
+                            $(this).removeAttr('checked');
+                            $(this).focus();
+                        } else {
+                            SetChildrenGradeLevel($(this));
+                            $(this).prop('checked', 'checked');
+                            $(this).focus();
+                        }
+                    }
+                    if (event.which == 13) {
+                        if ($("#multiSelectOptions").attr("hidden") == undefined) {
+                            $("#multiSelectOptions").attr("hidden", "hidden");
+                        }
+                        $("#ChildrenGradeLevel").focus();
+                    }
+                    if (event.which == 9) {
+                        if ($("#multiSelectOptions").attr("hidden") === undefined) {
+                            $("#multiSelectOptions").attr("hidden", "hidden");
+                        }
+                        if (event.shiftKey == true) {
+                            $("#HowDidYouHearAboutCC").focus();
+                        } else {
+                            $("#Username").focus();
+                        }
+                    }
                 }
             });
             $("#multiSelectOptions label").click(function (event) {
