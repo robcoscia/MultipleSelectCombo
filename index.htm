@@ -55,7 +55,7 @@
         <option value="7">Recently Graduated College</option>
         <option value="8">I am in school or a continuing education program.</option>
         </select>                   
-        <div id="multiSelectOptions">
+        <div id="multiSelectOptions" role="application">
             <input class="multipleSelectCheckbox" data-val="true" data-val-required="The ChildNotYetInSchool field is required." id="ChildNotYetInSchool" name="ChildNotYetInSchool" type="checkbox" value="true" /><input name="ChildNotYetInSchool" type="hidden" value="false" /> 
             <label for="ChildNotYetInSchool">Not Yet in School</label>
             <br />
@@ -156,20 +156,16 @@
                 }
             });
 
-//            $(".multipleSelectCheckbox").focus(function () {
-//                if ($("#multiSelectOptions").attr("hidden") == "hidden") {
-//                    $("#multiSelectOptions").removeAttr("hidden");
-//                }
-//                $("#ChildNotYetInSchool").focus();
-//                console.info(".multiSelectCheckbox focus");
-//            });
-
             $("#Username").focus(function () {
                 $("#ChildrenGradeLevel").data("lastFocus", "");
                 if ($("#multiSelectOptions").attr("hidden") === undefined) {
                     $("#multiSelectOptions").attr("hidden", "hidden");
                 }
                 console.info("#Username focus");
+            });
+            $("#Username").blur(function () {
+                $("#ChildrenGradeLevel").data("lastFocus", "");
+                console.info("#Username blur");
             });
             $("#HowDidYouHearAboutCC").focus(function () {
                 $("#ChildrenGradeLevel").data("lastFocus", "");
@@ -178,25 +174,20 @@
                 }
                 console.info("#HowDidYouHearAboutCC focus");
             });
-
-            $(".multipleSelectCheckbox").blur(function () {
-                if ($("#ChildrenGradeLevel").data("lastFocus") != $(this).attr("id")) {
-                    $("#ChildrenGradeLevel").data("lastFocus", $(this).attr("id"));
-                }
-
-                console.info("#multiSelectCheckbox blur");
-            });
-            $("#Username").blur(function () {
-                $("#ChildrenGradeLevel").data("lastFocus", "");
-                console.info("#Username blur");
-            });
             $("#HowDidYouHearAboutCC").blur(function () {
                 $("#ChildrenGradeLevel").data("lastFocus", "");
                 console.info("#HowDidYouHearAboutCC blur");
             });
 
-            $("#multiSelectOptions input[type=checkbox]").off("keydown");
-            $("#multiSelectOptions input[type=checkbox]").on("keydown", function (event) {
+            $(".multipleSelectCheckbox").blur(function () {
+                if ($("#ChildrenGradeLevel").data("lastFocus") != $(this).attr("id")) {
+                    $("#ChildrenGradeLevel").data("lastFocus", $(this).attr("id"));
+                }
+                console.info("#multiSelectCheckbox blur");
+            });
+
+            $(".multipleSelectCheckbox").off("keydown");
+            $(".multipleSelectCheckbox").on("keydown", function (event) {
                 event.preventDefault();
                 if (event.which == 40) {
                     var nextSibling = $(this).nextAll(".multipleSelectCheckbox");
