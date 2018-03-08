@@ -155,12 +155,13 @@
                 }
             });
 
-            $(".multipleSelectCheckbox").focus(function () {
-                if ($("#multiSelectOptions").attr("hidden") == "hidden") {
-                    $("#multiSelectOptions").removeAttr("hidden");
-                }
-                console.info(".multiSelectCheckbox focus");
-            });
+//            $(".multipleSelectCheckbox").focus(function () {
+//                if ($("#multiSelectOptions").attr("hidden") == "hidden") {
+//                    $("#multiSelectOptions").removeAttr("hidden");
+//                }
+//                $("#ChildNotYetInSchool").focus();
+//                console.info(".multiSelectCheckbox focus");
+//            });
 
             $("#Username").focus(function () {
                 $("#ChildrenGradeLevel").data("lastFocus", "");
@@ -174,7 +175,7 @@
                 if ($("#multiSelectOptions").attr("hidden") === undefined) {
                     $("#multiSelectOptions").attr("hidden", "hidden");
                 }
-                console.info("#multiSelectCheckbox focus");
+                console.info("#HowDidYouHearAboutCC focus");
             });
 
             $(".multipleSelectCheckbox").blur(function () {
