@@ -153,12 +153,10 @@
             });
 
             $(".multipleSelectCheckbox").focus(function () {
-                if ($(this).attr("class") == ) {
-                    if ($("#multiSelectOptions").attr("hidden") == "hidden") {
-                        $("#multiSelectOptions").removeAttr("hidden");
-                    }
+                if ($("#multiSelectOptions").attr("hidden") == "hidden") {
+                    $("#multiSelectOptions").removeAttr("hidden");
                 }
-             });
+            });
 
             $("#Username").focus(function () {
                 $("#ChildrenGradeLevel").data("lastFocus", "");
