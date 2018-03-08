@@ -94,8 +94,12 @@
     </form>
 
     <script type="text/javascript">
-        $(function () {
-            // disable submit buttons after being clicked to avoid submitting multiple times
+         $(function () {
+             $("#ChildrenGradeLevel").data("lastFocus", "");
+             $("#multiSelectOptions").attr("hidden", "hidden");
+             $("#multiSelectOptions").data('hover', 0);
+
+             // disable submit buttons after being clicked to avoid submitting multiple times
             $("#btnLogin").click(function () {
                 $("#btnLogin").addClass("btnDisabled");
                 $("#btnLogin").attr("disabled", "disabled");
@@ -121,18 +125,6 @@
                     $("#Username").focus();
                 }
             });
-            //            $("#ChildrenGradeLevel").on("click", function () {
-            //                if ($("#multiSelectOptions").attr("hidden") == "hidden") {
-            //                    $("#multiSelectOptions").removeAttr("hidden");
-            //                    $("#ChildNotYetInSchool").focus();
-            //                }
-            //                else {
-            //                    $("#ChildrenGradeLevel").prev().focus();
-            //                }
-            //            });
-            $("#ChildrenGradeLevel").data("lastFocus", "");
-            $("#multiSelectOptions").attr("hidden", "hidden");
-            $("#multiSelectOptions").data('hover', 0);
 
             $("#ChildrenGradeLevel").keydown(function (event) {
                 event.preventDefault();
@@ -160,44 +152,37 @@
                 }
             });
 
-            //            $("body").click(function (event) {
-            //                if ($("#multiSelectOptions").data('hover') == 0 && $(event.target).is("#ChildrenGradeLevel") == false) {
-            //                    if ($("#multiSelectOptions").attr("hidden") === undefined) {
-            //                        $("#multiSelectOptions").attr("hidden", "hidden");
-            //                    }
-            //                }
-            //            });
-
-            $("input").focus(function () {
-                if ($(this).attr("class") == "multipleSelectCheckbox") {
+            $(".multipleSelectCheckbox").focus(function () {
+                if ($(this).attr("class") == ) {
                     if ($("#multiSelectOptions").attr("hidden") == "hidden") {
                         $("#multiSelectOptions").removeAttr("hidden");
                     }
                 }
-                else {
-                    $("#ChildrenGradeLevel").data("lastFocus", "");
-                    if ($("#multiSelectOptions").attr("hidden") === undefined) {
-                        $("#multiSelectOptions").attr("hidden", "hidden");
-                    }
+             });
+
+            $("#Username").focus(function () {
+                $("#ChildrenGradeLevel").data("lastFocus", "");
+                if ($("#multiSelectOptions").attr("hidden") === undefined) {
+                    $("#multiSelectOptions").attr("hidden", "hidden");
                 }
             });
-
-            $("#HowDidYouHearAboutCC").focus(function () {
+           $("#HowDidYouHearAboutCC").focus(function () {
                 $("#ChildrenGradeLevel").data("lastFocus", "");
                 if ($("#multiSelectOptions").attr("hidden") === undefined) {
                     $("#multiSelectOptions").attr("hidden", "hidden");
                 }
             });
 
-            $("input").blur(function () {
-                if ($(this).attr("class") == "multipleSelectCheckbox") {
-                    if ($("#ChildrenGradeLevel").data("lastFocus") != $(this).attr("id")) {
-                        $("#ChildrenGradeLevel").data("lastFocus", $(this).attr("id"));
-                    }
+            $(".multipleSelectCheckbox").blur(function () {
+                if ($("#ChildrenGradeLevel").data("lastFocus") != $(this).attr("id")) {
+                    $("#ChildrenGradeLevel").data("lastFocus", $(this).attr("id"));
                 }
-                else {
-                    $("#ChildrenGradeLevel").data("lastFocus", "");
-                }
+            });
+            $("#Username").blur(function () {
+                $("#ChildrenGradeLevel").data("lastFocus", "");
+            });
+            $("#HowDidYouHearAboutCC").blur(function () {
+                $("#ChildrenGradeLevel").data("lastFocus", "");
             });
 
             $("#multiSelectOptions input[type=checkbox]").on("keydown", function (event) {
